@@ -20,7 +20,7 @@
     max-width: 520px;
     margin : 100px auto 30;
     padding: 40px 30px 70px;
-    border: 10px;
+    border-radius: 10px;
 
 }
 .To_Do_List h2{
@@ -30,3 +30,34 @@
     margin-bottom: 20%;
 
 }
+.pull_down{
+    align-items: center;
+    justify-content: space-between;
+    background-color: #55cb11;
+    border-radius: 30px;
+    padding-left: 20px;
+    display: flex;
+    margin-bottom: 25px;
+}
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+
+}
+button{
+    padding: 16px 50px;
+    background: #f3f5f1;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    
+
+}
+
+
