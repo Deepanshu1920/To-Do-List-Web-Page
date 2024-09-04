@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'popins',sans-serif;
+    box-sizing: border-box;
+
+}
+.container{
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+    background-color: blueviolet;
+    background:linear-gradient(135deg, #55cb11 #521313);
+    padding: 10px;
+
+}
+.To_Do_List{
+    width: 100%;
+    max-width: 520px
+    margin: 100px auto 30;
+    padding: 40px 30px 70px;
+    border-rdius: 10px
+    
+
+}
