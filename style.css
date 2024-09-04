@@ -16,10 +16,17 @@
 }
 .To_Do_List{
     width: 100%;
-    max-width: 520px
-    margin: 100px auto 30;
+    background-color: black;
+    max-width: 520px;
+    margin : 100px auto 30;
     padding: 40px 30px 70px;
-    border-rdius: 10px
-    
+    border: 10px;
+
+}
+.To_Do_List h2{
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20%;
 
 }
