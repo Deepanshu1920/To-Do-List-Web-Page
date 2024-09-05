@@ -60,7 +60,7 @@ button{
 
 }
 ul li{
-    list-style: circle;
+    list-style:disc; /*list circle */
     font-size: 17px;
     padding: 12px  8px 12px 50 px;
     user-select: none;
@@ -79,10 +79,14 @@ ul li ::before{
     background-position: center;
     top: 12px;
     left: 8px;
-
-
 }
-.checked{
+ul li.checked{
     background-color:#eacd27;
+    text-decoration: line-through;
+}
+ul li.checked ::before{
+
+
+
 }
 
