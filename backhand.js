@@ -14,19 +14,25 @@ function  addTask(){
                     del.innerHTML = "\u007d";
                     newLi.appendChild(del);
 
-                    
+
                     del.addEventListener("click", function() {
                         pullDownList.removeChild(newLi);
                       });
-                  
+
                       pullDownList.appendChild(newLi);
-
-
                     inputBox.value = '';                    
                     }
                     
                 }
 
+                pullDownList.addEventListener("click", function (e) {
+                    if (e.target.tagName === "LI") {
+                        e.target.classList.toggle("checked");
+                    } 
+                    else if (e.target.tagName === "del") {
+                        e.target.parentElement.remove();
+                    }
+                });
 
 
 
