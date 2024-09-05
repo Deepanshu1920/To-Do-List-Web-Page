@@ -5,21 +5,27 @@
     box-sizing: border-box;
 
 }
-.container{
-    background-color: blueviolet;
-    padding: 40px;
-    display: flex;
+body {
+    background-color: rgb(178, 134, 219); 
+    background-size: cover; 
+  }
 
-}
-.To_Do_List{
-    width: 100%;
-    background-color: rgb(231, 164, 164);
+
+
+  .To_Do_List {
+    background-color: rgb(245, 190, 190);
     max-width: 520px;
-    margin : 100px auto 30;
+    margin: 0 auto; /* centers horizontally */
     padding: 40px 30px 70px;
     border-radius: 10px;
+    position: absolute; /* centers vertically */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-}
+
+  
 .To_Do_List h1{
     color: white;
     display:flex;
@@ -30,7 +36,7 @@
 .pull_down{
     align-items: center;
     justify-content: space-between;
-    background-color: #55cb11;
+    background-color: #7cf038;
     border-radius: 30px;
     padding-left: 20px;
     display: flex;
@@ -47,7 +53,7 @@ input{
 }
 button{
     padding: 16px 50px;
-    background: #f3f5f1;
+    background: #87dac7;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
@@ -55,7 +61,7 @@ button{
     outline: none;
 }
 button:hover{
-    background-color: #55cb11;
+    background-color: #d4f16d;
 
 }
 ul li{
