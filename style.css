@@ -53,12 +53,14 @@ button{
     border-radius: 40px;
     border: none;
     outline: none;
-    
+}
+button:hover{
+    background-color: #55cb11;
 
 }
 ul li{
     list-style:disc; /*list circle */
-    font-size: 17px;
+    font-size: 25px;
     padding: 12px  8px 12px 50 px;
     user-select: none;
     cursor: pointer;
@@ -82,8 +84,6 @@ ul li.checked{
     text-decoration: line-through;
 }
 
-ul li.checked:hover{
-    background-color:#eacd27;}
 
 /* ul li.checked ::before{
 } */
