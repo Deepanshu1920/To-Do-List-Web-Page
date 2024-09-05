@@ -20,7 +20,9 @@ function  addTask(){
                       });
 
                       pullDownList.appendChild(newLi);
-                    inputBox.value = '';                    
+                    inputBox.value = ''; 
+                    saveData();
+                                      
                     }
                     
                 }
@@ -28,11 +30,30 @@ function  addTask(){
                 pullDownList.addEventListener("click", function (e) {
                     if (e.target.tagName === "LI") {
                         e.target.classList.toggle("checked");
+                        saveData();
                     } 
                     else if (e.target.tagName === "del" && e.target.innerHTML === "X") {
                         e.target.parentElement.remove();
+                        saveData();
                     }
                 });
+                function saveData() {
+                    localStorage.setItem("data", pullDownList.innerHTML);
+                }
+                function showTask(){
+                    pullDownList.innerHTML = localStorage.getItem("data");
+                    const delElements = pullDownList.querySelectorAll('del');
+                    delElements.forEach(del => {
+                        del.addEventListener("click", function() {
+                            pullDownList.removeChild(del.parentElement);
+                            saveData();
+                        });
+                    });
+                }
+                
+                showTask();
+                    
+
 
 
 
