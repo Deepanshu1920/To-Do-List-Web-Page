@@ -6,12 +6,7 @@
 
 }
 .container{
-    width: 100%;
-    max-width: 1200px;
-    min-height: 100vh;
     background-color: blueviolet;
-    background:linear-gradient(135deg, #55cb11 #521313);
-    padding: 10px;
 
 }
 .To_Do_List{
