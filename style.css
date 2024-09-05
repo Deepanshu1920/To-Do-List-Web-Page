@@ -16,7 +16,7 @@
 }
 .To_Do_List{
     width: 100%;
-    background-color: rgb(223, 37, 37);
+    background-color: rgb(243, 204, 204);
     max-width: 520px;
     margin : 100px auto 30;
     padding: 40px 30px 70px;
@@ -60,7 +60,7 @@ button{
 
 }
 ul li{
-    list-style: none;
+    list-style: circle;
     font-size: 17px;
     padding: 12px  8px 12px 50 px;
     user-select: none;
