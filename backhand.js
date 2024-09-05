@@ -1,20 +1,18 @@
 const inputBox = document.getElementById("input-box");
 const pullDownList = document.getElementById("pull_down_list");
 function  addTask(){
-    // Get the input value
-    const inputValue = inputBox.value;
-
-    // Create a new li element
-    const newLi = document.createElement('li');
-    newLi.textContent = inputValue;
-
-    // Add the new li element to the ul list
-    pullDownList.appendChild(newLi);
-
-    // Clear the input box
-    inputBox.value = '';
-}
-
+        if (inputBox.value === '')
+            {
+                 alert("Please enter a task");
+                 }
+                 else {
+                    const inputValue = inputBox.value;
+                    const newLi = document.createElement('li');
+                    newLi.textContent = inputValue;
+                    pullDownList.appendChild(newLi);
+                    inputBox.value = '';
+                    }
+                }
 
 
 
@@ -34,10 +32,6 @@ function  addTask(){
 
 
 
-    // if (input_box.value === ''){
-    //     alert("Please enter a task");
-    // }
-    // else{
     //     let li = document.createElement("li");
     //     li.innerHTML = input_box.value;
     //     list.pullDownList.appendChild(li);
