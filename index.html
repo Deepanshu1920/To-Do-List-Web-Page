@@ -5,9 +5,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
+    <style>
+        .theme-light {
+            --bg-color: white;
+            --text-color: black;
+        }
+        .theme-dark {
+            --bg-color: #1a202c;
+            --text-color: white;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+    </style>
+
+
+
+
+
+</head>
+<body class="theme-light transition-colors duration-500">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="flex items-center">
+            <span class="mr-2">Light</span>
+            <label for="theme-toggle" class="flex items-center cursor-pointer">
+
+                <div class="relative">
+                    <input type="checkbox" id="theme-toggle" class="sr-only peer" />
+                    <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                    <div class="dot absolute left-1 top-1 bg-white 
+                    w-6 h-6 rounded-full transition-transform 
+                    peer-checked:translate-x-6"></div>
+                </div>
+                
+            </label>
+            <span class="ml-2">Dark</span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('change', function() {
+            document.body.classList.toggle('theme-light');
+            document.body.classList.toggle('theme-dark');
+        });
+    </script>
+<!--<div class = "relative">
+    <input type ="checkbox" id = "themre-toggle" class="sr-only peer" />
+    <div class ="block bg-gray-600 w-14 h-8 rounded-full"></div>
+    <div class =" dot absolute left-1 top-1 bg-whit w-r h-6 ~ounded-full transition-transform peer-cheched: translate-x-6"></div>
+</div>    -->
         <div class= "To_Do_List">    
             <h1>To-Do List</h1>
             
