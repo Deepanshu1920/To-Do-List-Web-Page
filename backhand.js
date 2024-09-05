@@ -9,9 +9,22 @@ function  addTask(){
                     const inputValue = inputBox.value;
                     const newLi = document.createElement('li');
                     newLi.textContent = inputValue;
-                    pullDownList.appendChild(newLi);
-                    inputBox.value = '';
+                    // pullDownList.appendChild(newLi);
+                    const del = document.createElement("del");
+                    del.innerHTML = "\u007d";
+                    newLi.appendChild(del);
+
+                    
+                    del.addEventListener("click", function() {
+                        pullDownList.removeChild(newLi);
+                      });
+                  
+                      pullDownList.appendChild(newLi);
+
+
+                    inputBox.value = '';                    
                     }
+                    
                 }
 
 
@@ -35,10 +48,10 @@ function  addTask(){
     //     let li = document.createElement("li");
     //     li.innerHTML = input_box.value;
     //     list.pullDownList.appendChild(li);
-
-    //     let del = document.createElement("del");
-    //     del.innerHTML = "\u007d";
-    //     li.appendChild(del)
+    // let del = document.createElement("del");
+    // del.innerHTML = "\u007d";
+    // li.appendChild(del)
+ 
         
 
     // }

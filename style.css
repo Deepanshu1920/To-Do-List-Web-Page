@@ -7,11 +7,13 @@
 }
 .container{
     background-color: blueviolet;
+    padding: 40px;
+    display: flex;
 
 }
 .To_Do_List{
     width: 100%;
-    background-color: rgb(243, 204, 204);
+    background-color: rgb(231, 164, 164);
     max-width: 520px;
     margin : 100px auto 30;
     padding: 40px 30px 70px;
