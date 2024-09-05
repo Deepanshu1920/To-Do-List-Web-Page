@@ -81,12 +81,23 @@ ul li ::before{
     left: 8px;
 }
 ul li.checked{
-    background-color:#eacd27;
+    /* background-color:#eacd27; */
     text-decoration: line-through;
 }
-ul li.checked ::before{
-
-
-
+/* ul li.checked ::before{
+} */
+ul li del{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #e70a0a;
+    line-height: 40px;
+    text-align: center;
 }
 
+ul li del:hover{
+    background-color: rgb(130, 15, 207);
+}
