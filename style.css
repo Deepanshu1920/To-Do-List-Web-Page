@@ -20,11 +20,11 @@
     border-radius: 10px;
 
 }
-.To_Do_List h2{
+.To_Do_List h1{
     color: white;
-    display: flex;
+    display:flex;
     align-items: center;
-    margin-bottom: 20%;
+    margin-bottom: 10%;
 
 }
 .pull_down{
@@ -71,30 +71,34 @@ ul li ::before{
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    background-color: rgb(18, 237, 120);
+    /* background-color: rgb(18, 237, 120); */
     background-size: cover;
     background-position: center;
     top: 12px;
     left: 8px;
 }
 ul li.checked{
-    /* background-color:#eacd27; */
+    
     text-decoration: line-through;
 }
+
+ul li.checked:hover{
+    background-color:#eacd27;}
+
 /* ul li.checked ::before{
 } */
 ul li del{
     position: absolute;
     right: 0;
     top: 5px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     font-size: 22px;
-    color: #e70a0a;
-    line-height: 40px;
+    color: #b55353;
+    line-height: 30px;
     text-align: center;
 }
 
 ul li del:hover{
-    background-color: rgb(130, 15, 207);
+    background-color: rgb(190, 142, 222);
 }

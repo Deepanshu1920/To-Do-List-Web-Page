@@ -11,7 +11,7 @@ function  addTask(){
                     newLi.textContent = inputValue;
                     // pullDownList.appendChild(newLi);
                     const del = document.createElement("del");
-                    del.innerHTML = "\u007d";
+                     del.innerHTML = "X";  //\u007d
                     newLi.appendChild(del);
 
 
@@ -29,7 +29,7 @@ function  addTask(){
                     if (e.target.tagName === "LI") {
                         e.target.classList.toggle("checked");
                     } 
-                    else if (e.target.tagName === "del") {
+                    else if (e.target.tagName === "del" && e.target.innerHTML === "X") {
                         e.target.parentElement.remove();
                     }
                 });
@@ -40,26 +40,4 @@ function  addTask(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    //     let li = document.createElement("li");
-    //     li.innerHTML = input_box.value;
-    //     list.pullDownList.appendChild(li);
-    // let del = document.createElement("del");
-    // del.innerHTML = "\u007d";
-    // li.appendChild(del)
- 
-        
-
-    // }
-    // input_box.value="";
 
