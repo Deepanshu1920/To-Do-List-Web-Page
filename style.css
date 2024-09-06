@@ -1,15 +1,49 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'popins',sans-serif;
+    font-family: 'Popins',sans-serif;
     box-sizing: border-box;
 
 }
 body {
-    background-color: rgb(178, 134, 219); 
-    background-size: cover; 
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh; /* Full viewport height */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.container {
+    background-color: rgb(190, 143, 235); /* Background color set here */
+    background-size: cover;
+    width: 100%; /* Make sure the container takes up full width */
+    height: 100%; /* Make sure the container takes up full height */
+    position: relative; /* Necessary for positioning particles */
+    overflow: hidden; /* Hide overflow to prevent particles from going outside */
+}
 
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgb(36, 63, 63);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    animation: flyAway 1s forwards; /* Ensure duration is defined */
+}
+
+@keyframes flyAway {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy));
+        opacity: 0;
+    }
+}
 
 
   .To_Do_List {
@@ -19,6 +53,7 @@ body {
     padding: 40px 30px 70px;
     border-radius: 10px;
     position: absolute; /* centers vertically */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -36,11 +71,12 @@ body {
 .pull_down{
     align-items: center;
     justify-content: space-between;
-    background-color: #7cf038;
+    background-color: #b3ec93;
     border-radius: 30px;
     padding-left: 20px;
     display: flex;
     margin-bottom: 25px;
+    
 }
 input{
     flex: 1;
@@ -48,7 +84,7 @@ input{
     outline: none;
     background: transparent;
     padding: 10px;
-    font-weight: 14px;
+    font-weight: 400;
 
 }
 button{
@@ -67,7 +103,7 @@ button:hover{
 ul li{
     list-style:disc; /*list circle */
     font-size: 25px;
-    padding: 12px  8px 12px 50 px;
+    padding: 12px  8px 12px 50px;
     user-select: none;
     cursor: pointer;
     position: relative;
