@@ -97,4 +97,34 @@ function  addTask(){
                     const colours = ['#7cf038', '#8cdc5e', '#7fd44d', '#b3ec93'];
                     return colours[Math.floor(Math.random() * colours.length)];
                 }
+              
+                
+              const timeDisplay= document.querySelector("#time_display");
+              const start_B= document.querySelector("#start_b");
+              const stop_B= document.querySelector("#stop_b");
+              const reset_B= document.querySelector("#reset_0b");
+
+              let startTime=0;
+              let eapsedTime=0;
+              let currenTime=0;
+              let stop = true;
+              let intervalId;
+              let day=0;
+              let hrs=0;
+              let mins=0;
+              let secs=0;
+
+
+              start_B.addEventListener("click",() =>{
+                if(stop){
+                    stop = false;
+                    startTime= Date.now() -eapsedTime;
+                    intervalId= setInterval(update, 10); 
+                }
+              });
+              stop_B.addEventListener("click",() => {});
+              reset_B.addEventListener("click",() => {});
+        
+
+
                 

@@ -3,8 +3,10 @@
     padding: 0;
     font-family: 'Popins',sans-serif;
     box-sizing: border-box;
+    font-family:"Baskervville SC", serif;
 
 }
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
 body {
     display: flex;
     justify-content: center;
@@ -22,6 +24,36 @@ body {
     position: relative; /* Necessary for positioning particles */
     overflow: hidden; /* Hide overflow to prevent particles from going outside */
 }
+/* .overlay{
+    width: 500px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    colour:white;
+    background-color: black;
+} */
+.timer_b{
+    width: 80px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: black;
+    color: beige;
+    cursor: pointer;
+    font-family:consolas, monospace;
+}
+#time_display{
+    font-size: 60px;
+    color: #87dac7;
+    font-family:consolas, monospace;
+}
+#timecount{
+    text-align: center;
+    border: 2px;
+    border-radius: 25px;
+    background-color: rgb(76, 63, 63);
+}
+
+
 
 .particle {
     position: absolute;
