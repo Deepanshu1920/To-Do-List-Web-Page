@@ -18,9 +18,10 @@ function  addTask(){
 
                     del.addEventListener("click", function() {
                         pullDownList.removeChild(newLi);
+                        saveData();
                       });
 
-                      pullDownList.appendChild(newLi);
+                    pullDownList.appendChild(newLi);
                     inputBox.value = ''; 
                     saveData();
                                       
@@ -66,14 +67,12 @@ function  addTask(){
                         createCrackers(e.clientX, e.clientY);
                     }
                 });
-                
                 function createCrackers(x, y) {
                     const particleCount = 20;
                     for (let i = 0; i < particleCount; i++) {
                         createParticle(x, y);
                     }
                 }
-                
                 function createParticle(x, y) {
                     const particle = document.createElement('div');
                     particle.className = 'particle';
@@ -98,74 +97,88 @@ function  addTask(){
                     return colours[Math.floor(Math.random() * colours.length)];
                 }
               
+              
                 
-              const timeDisplay= document.querySelector("#time_display");
-              const start_B= document.querySelector("#start_b");
-              const stop_B= document.querySelector("#stop_b");
-              const reset_B= document.querySelector("#reset_0b");
-
-              let startTime=0;
-              let elapsedTime=0;
-              let currenTime=0;
-              let stop = true;
-              let intervalId;
-              let day=0;
-              let hrs=0;
-              let mins=0;
-              let secs=0;
 
 
-              start_B.addEventListener("click",() =>{
-                if(stop){
-                    stop = false;
-                    startTime= Date.now() - elapsedTime;
-                    intervalId= setInterval(updateTime, 10); 
-                }
-              });
-              stop_B.addEventListener("click",() => {
-                if(!stop){
-                    stop = true;
-                    elapsedTime =Data.now() -startTime;
-                    clearInterval(intervalId);
-                }
+                const timeDisplay = document.querySelector("#time_display");
+const startBtn = document.querySelector("#start_b");
+const stopBtn = document.querySelector("#stop_b");
+const resetBtn = document.querySelector("#reset_b");
 
+let startTime = 0;
+let elapsedTime = 0;
+let currentTime = 0;
+let stop = true;
+let intervalId;
+let day = 0;
+let hrs = 0;
+let mins = 0;
+let secs = 0;
 
-              });
-              reset_B.addEventListener("click",() => {
-                stop = true;
-                clearInterval(intervalId);
-                startTime=0;
-                elapsedTime=0;
-                currenTime=0;
-                day=0;
-                hrs=0;
-                mins=0;
-                secs=0;
-                timeDisplay.textContent ="00:00:00:00";
+// Retrieve saved time from localStorage when the page loads
+window.onload = function () {
+    const savedTime = localStorage.getItem("timer");
+    if (savedTime) {
+        elapsedTime = parseInt(savedTime, 10); // Retrieve saved elapsed time
+        updateTimeDisplay(); // Update the display with the saved time
+    }
+};
 
-                
-              });
-        function updateTime(){
-             elapsedTime = Data.now() .startTime;
+startBtn.addEventListener("click", () => {
+    if (stop) {
+        stop = false;
+        startTime = Date.now() - elapsedTime; // Calculate time offset for smooth restart
+        intervalId = setInterval(updateTime, 1000); // Start timer with 1 second interval
+    }
+});
 
-             secs = Math.floor((elapsedTime / 100)% 60);
-             mins = Math.floor((elapsedTime / (1000 * 60)) % 60);
-             hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);
-             day = Math.floor((elapsedTime / (1000 * 60 * 60 * 60)) % 60);
+stopBtn.addEventListener("click", () => {
+    if (!stop) {
+        stop = true;
+        elapsedTime = Date.now() - startTime; // Calculate final elapsed time
+        clearInterval(intervalId); // Stop the timer
+        localStorage.removeItem("timer"); // Remove saved time from localStorage
+    }
+});
 
-             secs = pad(secs);
-             mins = pad(mins);
-             hrs = pad(hrs);
-             day = pad(day);
+resetBtn.addEventListener("click", () => {
+    stop = true;
+    clearInterval(intervalId); // Stop the timer
+    startTime = 0;
+    elapsedTime = 0;
+    currentTime = 0;
+    day = 0;
+    hrs = 0;
+    mins = 0;
+    secs = 0;
+    timeDisplay.textContent = "00:00:00:00"; // Reset display
+    localStorage.removeItem("timer"); // Remove saved time from localStorage
+});
 
-             timeDisplay.textContent = '${day}:${hrs}:${mins}:${secs}';
+// Function to continuously update the timer
+function updateTime() {
+    elapsedTime = Date.now() - startTime; // Calculate elapsed time
 
-             function pad(unit){
-                return (("0")+unit).length > 2 ? unit : "0" + unit;
+    secs = Math.floor((elapsedTime / 1000) % 60);
+    mins = Math.floor((elapsedTime / (1000 * 60)) % 60);
+    hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 24);
+    day = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
 
-             }
+    updateTimeDisplay(); // Update the display
+    localStorage.setItem("timer", elapsedTime); // Save current elapsed time to localStorage
+}
 
-        }
+// Function to update the time display on the screen
+function updateTimeDisplay() {
+    secs = pad(secs);
+    mins = pad(mins);
+    hrs = pad(hrs);
+    day = pad(day);
+    timeDisplay.textContent = `${day}:${hrs}:${mins}:${secs}`;
+}
 
-
-                
+// Helper function to pad single-digit numbers with leading zeros
+function pad(unit) {
+    return (("0") + unit).length > 2 ? unit : "0" + unit;
+}
