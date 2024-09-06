@@ -143,6 +143,7 @@ function  addTask(){
                 secs=0;
                 timeDisplay.textContent ="00:00:00:00";
 
+                
               });
         function updateTime(){
              elapsedTime = Data.now() .startTime;
