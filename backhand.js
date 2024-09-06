@@ -53,41 +53,48 @@ function  addTask(){
                 }
                 
                 showTask();
-document.addEventListener('mousemove', function(e){
-    creatCrackers(e.clientX, e.clientY);
-});
-
-document.addEventListener('mousemove', function(e) {
-    createCrackers(e.clientX, e.clientY);
-});
-
-function createCrackers(x, y) {
-    const particleCount = 20;
-    for (let i = 0; i < particleCount; i++) {
-        createParticle(x, y);
-    }
-}
-
-function createParticle(x, y) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = `${x}px`;
-    particle.style.top = `${y}px`;
-    particle.style.backgroundColor = getRandomColour();
-
-    const angle = Math.random() * 2 * Math.PI;
-    const speed = Math.random() * 50;
-    particle.style.setProperty('--dx', `${Math.cos(angle) * speed}px`);
-    particle.style.setProperty('--dy', `${Math.sin(angle) * speed}px`);
-
-    document.querySelector('.container').appendChild(particle);
-
-    particle.addEventListener('animationend', () => {
-        particle.remove();
-    });
-}
-
-function getRandomColour() {
-    const colours = ['#7cf038', '#8cdc5e', '#7fd44d', '#b3ec93'];
-    return colours[Math.floor(Math.random() * colours.length)];
-}
+                document.addEventListener('mousemove', function(e) {
+                    // Check if mouse is inside the .To_Do_List element
+                    const toDoList = document.querySelector('.To_Do_List');
+                    const rect = toDoList.getBoundingClientRect();
+                    const isInsideToDoList = e.clientX >= rect.left &&
+                                             e.clientX <= rect.right &&
+                                             e.clientY >= rect.top &&
+                                             e.clientY <= rect.bottom;
+                
+                    if (!isInsideToDoList) {
+                        createCrackers(e.clientX, e.clientY);
+                    }
+                });
+                
+                function createCrackers(x, y) {
+                    const particleCount = 20;
+                    for (let i = 0; i < particleCount; i++) {
+                        createParticle(x, y);
+                    }
+                }
+                
+                function createParticle(x, y) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = `${x}px`;
+                    particle.style.top = `${y}px`;
+                    particle.style.backgroundColor = getRandomColour();
+                
+                    const angle = Math.random() * 2 * Math.PI;
+                    const speed = Math.random() * 50;
+                    particle.style.setProperty('--dx', `${Math.cos(angle) * speed}px`);
+                    particle.style.setProperty('--dy', `${Math.sin(angle) * speed}px`);
+                
+                    document.querySelector('.container').appendChild(particle);
+                
+                    particle.addEventListener('animationend', () => {
+                        particle.remove();
+                    });
+                }
+                
+                function getRandomColour() {
+                    const colours = ['#7cf038', '#8cdc5e', '#7fd44d', '#b3ec93'];
+                    return colours[Math.floor(Math.random() * colours.length)];
+                }
+                
