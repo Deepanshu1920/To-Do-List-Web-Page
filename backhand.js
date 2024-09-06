@@ -105,7 +105,7 @@ function  addTask(){
               const reset_B= document.querySelector("#reset_0b");
 
               let startTime=0;
-              let eapsedTime=0;
+              let elapsedTime=0;
               let currenTime=0;
               let stop = true;
               let intervalId;
@@ -118,13 +118,53 @@ function  addTask(){
               start_B.addEventListener("click",() =>{
                 if(stop){
                     stop = false;
-                    startTime= Date.now() -eapsedTime;
-                    intervalId= setInterval(update, 10); 
+                    startTime= Date.now() - elapsedTime;
+                    intervalId= setInterval(updateTime, 10); 
                 }
               });
-              stop_B.addEventListener("click",() => {});
-              reset_B.addEventListener("click",() => {});
-        
+              stop_B.addEventListener("click",() => {
+                if(!stop){
+                    stop = true;
+                    elapsedTime =Data.now() -startTime;
+                    clearInterval(intervalId);
+                }
+
+
+              });
+              reset_B.addEventListener("click",() => {
+                stop = true;
+                clearInterval(intervalId);
+                startTime=0;
+                elapsedTime=0;
+                currenTime=0;
+                day=0;
+                hrs=0;
+                mins=0;
+                secs=0;
+                timeDisplay.textContent ="00:00:00:00";
+
+              });
+        function updateTime(){
+             elapsedTime = Data.now() .startTime;
+
+             secs = Math.floor((elapsedTime / 100)% 60);
+             mins = Math.floor((elapsedTime / (1000 * 60)) % 60);
+             hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);
+             day = Math.floor((elapsedTime / (1000 * 60 * 60 * 60)) % 60);
+
+             secs = pad(secs);
+             mins = pad(mins);
+             hrs = pad(hrs);
+             day = pad(day);
+
+             timeDisplay.textContent = '${day}:${hrs}:${mins}:${secs}';
+
+             function pad(unit){
+                return (("0")+unit).length > 2 ? unit : "0" + unit;
+
+             }
+
+        }
 
 
                 
